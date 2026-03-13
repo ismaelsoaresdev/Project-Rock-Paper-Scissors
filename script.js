@@ -1,4 +1,3 @@
-console.log("Hello World")
 
 
 function getComputerChoice(){
@@ -17,20 +16,40 @@ else {return 'scissors'}
 
 
 function getHumanChoice() { 
-let choice = prompt('rock,paper or scissors?')
+let choice = prompt('rock,paper or scissors?').toLowerCase()
+
+
 return choice;
 }
 
 
+function playgame(){
 
 
 
-humanScore = 0
-computerScore = 0
+let humanScore = 0
+let computerScore = 0
 
-function playRound (humanChoice,computerChoice){
+for (i=0; i<5; i++) { playRound()}
 
-humanChoice.toLowerCase()
+
+
+function playRound(){
+
+
+
+let humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+
+
+
+
+console.log(humanChoice)
+console.log(computerChoice)
+
+
+
+
 
 if (humanChoice === computerChoice) {console.log('draw')} else
 if (humanChoice === 'rock' && computerChoice === 'paper') {console.log('You lost! Paper beats Rock'), computerScore++} else
@@ -40,12 +59,17 @@ if (humanChoice === 'scissors' && computerChoice === 'rock') {console.log('You l
 if (humanChoice === 'paper' && computerChoice === 'rock') {console.log('You won! Paper beats Rock'), humanScore++} else
 if (humanChoice === 'paper' && computerChoice === 'scissors') {console.log('You lost! Scissors beats Paper'), computerScore++} 
 
+
+
+
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(humanSelection)
-console.log(computerSelection)
 
 
-console.log(playRound(humanSelection,computerSelection));
+if (humanScore === computerScore){console.log('Draw :/')}else
+if (humanScore >=  computerScore){console.log('You won!')}else
+if (humanScore <=  computerScore){console.log('You lost!')}
+
+
+
+}
+playgame()
